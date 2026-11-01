@@ -27,6 +27,8 @@ Copy-Item -LiteralPath (Join-Path $repo 'assets\mowj.ico') -Destination $appFold
 Copy-Item -LiteralPath (Join-Path $repo 'assets\mowj.ico') -Destination $stage
 Copy-Item -LiteralPath (Join-Path $repo 'LICENSE') -Destination (Join-Path $stage 'LICENSE-MOWJ.txt')
 Copy-Item -LiteralPath (Join-Path $repo 'THIRD_PARTY.md') -Destination $stage
+Copy-Item -LiteralPath (Join-Path $repo 'ARTWORK-LICENSE.md') -Destination $stage
+Copy-Item -LiteralPath (Join-Path $repo 'LICENSE-SCOPE.md') -Destination $stage
 $html=[IO.File]::ReadAllText((Join-Path $repo 'mowj-offline.html'))
 $logo=[Convert]::ToBase64String([IO.File]::ReadAllBytes((Join-Path $repo 'assets\mowj-256.png')))
 $html=$html.Replace('</head>','<link rel="icon" href="data:image/png;base64,'+$logo+'"></head>')
