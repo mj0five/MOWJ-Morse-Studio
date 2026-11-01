@@ -90,7 +90,7 @@ On Windows:
 .\scripts\test-layout.ps1
 ```
 
-On 2026-11-01, I ran all three source test suites;, the standalone web build and installer/uninstaller layout assertions at 100%, 125%, 150% and 200% also passed. I also checked onboarding, the overview and the first story contact with an isolated desktop profile. This does not establish complete mission, audio, PDF or clean-machine acceptance. See [the exact test scope and remaining checks](docs/VALIDATION.md).
+On 2026-11-01, I ran all three source test suites, the standalone web build and installer/uninstaller layout assertions at 100%, 125%, 150% and 200%; all passed. I also checked onboarding, the overview and the first story contact with an isolated desktop profile. This does not establish complete mission, audio, PDF or clean-machine acceptance. See [the exact test scope and remaining checks](docs/VALIDATION.md).
 
 ## Source layout
 
