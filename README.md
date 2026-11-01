@@ -2,11 +2,11 @@
 
 ![MOWJ — offline Morse learning and rhythm analysis](docs/images/banner-readme.png)
 
-An offline studio for learning Morse code, practising transmission rhythm and following a coastal rescue story. Built by Jey as part of the Vega project family.
+I built MOWJ as an offline studio for learning Morse code, practising transmission rhythm and following a coastal rescue story. It is part of my Vega project family.
 
 [راهنمای فارسی](README-fa.md) · [Validation report](docs/VALIDATION.md) · [Third-party notices](THIRD_PARTY.md)
 
-![MOWJ installer](docs/images/installer.png)
+![MOWJ — The Silent Station](docs/images/banner-website.png)
 
 ## What you can do
 
@@ -53,7 +53,7 @@ On the telegraph desk, record at least three signals, release Space and choose *
 
 ## Windows build
 
-The Windows package uses Electron. Version 0.4.1 is the initial public release prepared for publication. The Windows installer is unsigned and intended for Windows 10/11 x64; clean-machine compatibility remains unverified.
+The Windows package uses Electron. I released version 0.4.1 as the first public version. The Windows installer is unsigned and intended for Windows 10/11 x64; clean-machine compatibility remains unverified.
 
 Build with Node.js and the Windows .NET Framework C# compiler:
 
@@ -67,7 +67,7 @@ The script downloads a pinned official Electron runtime, verifies its SHA-256 an
 .\scripts\build-windows.ps1 -ElectronArchive "C:\path\electron-v45.2.1-win32-x64.zip"
 ```
 
-Use a PowerShell session that permits your reviewed local scripts; no permanent execution-policy change is required by this project. Build/test binaries belong in ignored output folders, not source commits. Distribution of the installer should follow release testing; this README does not imply that a public release already exists.
+Use a PowerShell session that permits your reviewed local scripts; no permanent execution-policy change is required by this project. Build/test binaries belong in ignored output folders, not source commits. I publish installer downloads in Releases and document the checks I have completed below.
 
 ## Local data and privacy
 
@@ -90,7 +90,7 @@ On Windows:
 .\scripts\test-layout.ps1
 ```
 
-On 2026-11-01, all three source test suites, the standalone web build and installer/uninstaller layout assertions at 100%, 125%, 150% and 200% passed. A desktop smoke test reached onboarding, overview and the first story contact using an isolated profile. This does not establish complete mission, audio, PDF or clean-machine acceptance. See [the exact test scope and remaining checks](docs/VALIDATION.md).
+On 2026-11-01, I ran all three source test suites;, the standalone web build and installer/uninstaller layout assertions at 100%, 125%, 150% and 200% also passed. I also checked onboarding, the overview and the first story contact with an isolated desktop profile. This does not establish complete mission, audio, PDF or clean-machine acceptance. See [the exact test scope and remaining checks](docs/VALIDATION.md).
 
 ## Source layout
 
@@ -106,10 +106,14 @@ docs/         Validation, release notes and preview images
 
 ## Artwork and licensing
 
-The project owner confirms that all included images are AI-generated. See [ARTWORK.md](docs/ARTWORK.md) for provenance notes. AI generation alone does not determine third-party rights or assign a distribution license.
+I created the visual identity, banners and story artwork with AI assistance, selected the results and developed them for MOWJ.
 
-The original project source, documentation and included project artwork are distributed under the [MIT License](LICENSE), copyright (c) 2026 Jey (mj0five). This does not relicense third-party components or grant rights to third-party trademarks. Electron and bundled components retain their own licenses and notices; see [THIRD_PARTY.md](THIRD_PARTY.md).
+My source code and written documentation are available under the [MIT License](LICENSE). Artwork and branding are covered separately by [ARTWORK-LICENSE.md](ARTWORK-LICENSE.md): you may use them within MOWJ and redistribute them as part of MOWJ, but standalone copying, republishing or reuse in another product requires my permission. Do not present a fork as my official release.
 
-## Future work
+These terms apply to this repository revision and later versions. The original v0.4.1 distribution included the artwork under MIT; this update does not withdraw permissions already granted with that version.
 
-Verify the Persian mapping, improve rhythm feedback, add adaptive drills and investigate audio export or optional hardware connectivity. Microphone decoding and radio hardware transmission are not implemented.
+See [my artwork notes](docs/ARTWORK.md) and [third-party notices](THIRD_PARTY.md). Electron and bundled components retain their own licenses.
+
+## What I want to improve next
+
+I plan to verify the Persian mapping, refine rhythm feedback and explore adaptive drills, audio export and optional hardware connectivity. Microphone decoding and radio hardware transmission are not implemented.

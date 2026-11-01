@@ -1,9 +1,12 @@
-# Artwork provenance
+# My artwork
 
-The project owner stated on 2026-11-01 that all included images are AI-generated. This includes the supplied app identity assets, installer previews and coastal story artwork; preview screenshots depict the application UI and may contain those generated assets.
+I created MOWJ's visual identity, banners and coastal story images with AI assistance. I selected and developed the artwork for this project.
 
-Story source files: `app/assets/story/coast.png`, `helicopter.png`, `wreck.png`, `lifeboat.png`. App identity files: `assets/mowj-logo.png`, `mowj-256.png`, `mowj.ico`.
+- Identity: assets/mowj-logo.png, assets/mowj-256.png, assets/mowj.ico.
+- Story: app/assets/story/coast.png, helicopter.png, wreck.png, lifeboat.png.
+- Banners: docs/images/banner-readme.png and banner-website.png.
+- Screenshots: docs/images/installer.png and uninstaller.png depict my application and its artwork.
 
-Generation tools, models, prompts and dates were not supplied for individual assets. Do not invent them or describe the artwork as third-party stock. This provenance statement does not establish exclusive rights, trademark registration or a legal review of the images. Included project artwork is distributed under the root MIT license, alongside the original code and documentation; third-party trademarks and components are excluded.
+I use the signal-lab banner for the README and the coastal banner to introduce The Silent Station. Both carry the green J and violet signature dot.
 
-Selected website/README banners were generated with the built-in image-generation tool on 2026-11-01: signal-lab README banner with descriptive subtitle, green J and violet signature dot; coastal website banner with serif green J and violet signature dot. Final PNGs are in docs/images/. The exact generative model was not exposed.
+AI assistance does not mean I offer these images for unrestricted standalone reuse. See [ARTWORK-LICENSE.md](../ARTWORK-LICENSE.md). The original v0.4.1 MIT distribution remains subject to its original permissions. I do not claim a registered trademark or independently reviewed exclusive rights.
