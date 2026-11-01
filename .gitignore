@@ -1,0 +1,23 @@
+# Generated builds and downloaded runtimes
+.cache/
+.build/
+dist/
+node_modules/
+mowj-offline.html
+app/story.js
+*.exe
+*.dll
+*.pdb
+*.zip
+*.log
+*.bak
+# Local state / credentials
+.env
+.env.*
+!.env.example
+profile/
+user-data/
+qa-install/
+.vs/
+.DS_Store
+Thumbs.db

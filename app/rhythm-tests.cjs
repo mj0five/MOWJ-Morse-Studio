@@ -1,0 +1,12 @@
+const assert=require('assert'),R=require('./rhythm.js');
+const e=(symbol,start,end,gapUnits=1,manual=true)=>({symbol,start,end,gapUnits,manual,unit:100});
+let r=R.analyze([e('.',0,100),e('-',200,500),e('.',800,900,3),e('.',1600,1700,7)]);
+assert.equal(r.score,100);assert.equal(r.items.length,7);assert.equal(r.steady,7);
+r=R.analyze([e('.',0,100,1,false),e('-',200,500,1,false),e('.',600,700,1,false)]);
+assert.equal(r.score,100);assert.equal(r.items.length,2);
+r=R.analyze([e('-',0,300,1,false),e('.',150,250,1,false),e('.',350,450,1,false)]);
+assert.equal(r.overlaps,1);assert(r.score<100);
+r=R.analyze([e('.',0,200),e('.',400,600),e('.',800,1000)]);assert(r.long>0);assert(r.score<100);
+r=R.analyze([e('.',0,50),e('.',100,150),e('.',200,250)]);assert(r.short>0);
+assert.equal(R.analyze([]).score,null);
+console.log('PASS: straight-key duration, 1/3/7 spacing, generated-tone exclusion, overlap, short/long feedback and empty recording.');

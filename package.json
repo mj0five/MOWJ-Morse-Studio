@@ -1,0 +1,12 @@
+{
+  "name": "mowj-morse-studio",
+  "version": "0.4.1",
+  "private": true,
+  "description": "Offline Morse training and coastal story missions",
+  "scripts": {
+    "build:web": "node app/build.mjs",
+    "test": "node app/tests.cjs && node app/rhythm-tests.cjs && node app/story-tests.cjs"
+  },
+  "license": "MIT",
+  "author": "Jey (mj0five)"
+}

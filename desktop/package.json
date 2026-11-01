@@ -1,0 +1,10 @@
+{
+  "name": "mowj-morse-studio",
+  "productName": "MOWJ Morse Studio",
+  "version": "0.4.1",
+  "description": "Offline Morse learning, rhythm analysis and story missions.",
+  "main": "main.cjs",
+  "author": "Jey (mj0five)",
+  "license": "MIT",
+  "private": true
+}

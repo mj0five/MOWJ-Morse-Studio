@@ -1,0 +1,18 @@
+const fs=require('fs'),vm=require('vm'),assert=require('assert');
+const html=fs.readFileSync(require('path').join(__dirname,'story-missions.html'),'utf8'),script=html.split('<script>')[1].split('</script>')[0];
+function harness(initial={}){
+ const nodes={},events={},stored={...initial},clock={now:1000};
+ const classes=()=>({s:new Set(),toggle(k,b){if(b===undefined)b=!this.s.has(k);b?this.s.add(k):this.s.delete(k);return b},add(k){this.s.add(k)},remove(k){this.s.delete(k)},contains(k){return this.s.has(k)}});
+ function node(id){return nodes[id]||={value:id==='#speed'?'14':id==='#letterGap'?'750':id==='#noise'?'off':id==='#noiseLevel'?'35':'EP3M',checked:true,disabled:false,classList:classes(),style:{},textContent:'',dataset:{},setAttribute(k,v){this[k]=v},replaceChildren(){},focus(){},querySelectorAll:()=>[],click(){if(!this.disabled)this.onclick?.()},getContext:()=>({setTransform(){},clearRect(){},beginPath(){},moveTo(){},lineTo(){},stroke(){}}),clientWidth:100}}
+ const sandbox={document:{hidden:false,body:{classList:classes()},querySelector:node,querySelectorAll:()=>[],createElement:()=>({}),addEventListener:(k,f)=>events[k]=f},localStorage:{getItem:k=>stored[k]||null,setItem:(k,v)=>stored[k]=v},requestAnimationFrame(){},setTimeout(){},performance:{now:()=>clock.now},window:{addEventListener(){},matchMedia:()=>({matches:false})},devicePixelRatio:1,confirm:()=>true,console};
+ vm.createContext(sandbox);vm.runInContext(script,sandbox);return{sandbox,nodes,stored,clock,run:s=>vm.runInContext(s,sandbox)};
+}
+let h=harness();h.run("function check(v,m){if(!v)throw Error(m)};check(!active(),'initial briefing');$('#start').click();check(active(),'start');");
+h.run("add('.');check(signal==='','locked transmit');");
+for(let i=0;i<14;i++)h.run("load("+i+");$('#translation').value='WRONG';verify();check(word===0,'rx retry');for(const w of words()){$('#translation').value=w;verify()}check(rxDone,'unlocked');var count=stats.characters;signal='......';commit();check(txPos===0,'tx retry');var guard=0;while(!done&&guard++<180){signal=CODE[current().tx[txPos]];commit()}check(done,'delivered');");
+h.run("check(pendingFinish&&!record,'delayed ending');completeSubtitle();sim=finishAt;tick(1000);check(record&&record.contacts===14&&!record.debugRun,'full record');finish();check(readRecords().length===1,'no duplicate');check(resultsOpen,'results modal');");
+h=harness();h.run("function check(v,m){if(!v)throw Error(m)};$('#start').click();load(0);for(const w of words()){$('#translation').value=w;verify()}add('.');add('.');add('.');add('.');tick(1000);tick(1800);check(txPos===1,'auto H');add('-');tick(2600);check(txPos===1,'wrong preserves H');add('.');tick(2800);setPause(true);let before=sim;tick(8000);check(sim===before&&txPos===1,'pause freezes decode');setPause(false);tick(8200);tick(9000);check(txPos===1,'incomplete A retry');");
+h.run("load(3);tick(10000);tick(34000);check(!flightState,'flight complete');check($('#link').d.endsWith(rescuePoint.join(' ')),'live endpoint');load(4);tick(46000);check(!flightState&&wreckVisible,'crash complete');check(rescuePoint[0]===1090&&rescuePoint[1]===450,'crash coordinate');load(11);tick(68000);check(!boatState,'boat arrives');check(Math.abs(boatPoint[0]-990)<.01,'north landing');load(13);tick(94000);check(Math.abs(boatPoint[0]-745)<.01,'boat returns harbor');");
+
+h.run("window.MowjStoryHost.configure({callsign:'W1TEST',muted:true});check(hostMuted,'global mute sync');check($('#callsign').value==='W1TEST','profile sync');window.MowjStoryHost.suspend();check(paused,'navigation pauses');");console.log('PASS: production story, no debug skip, profile/audio bridge, navigation pause.');
+assert(!html.includes('id="skipRelay"'));
